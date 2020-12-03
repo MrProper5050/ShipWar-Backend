@@ -1,0 +1,18 @@
+<footer>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        let socket = io();
+        socket.on('connected',(msg)=>{
+            console.log(window.location.pathname)
+            socket.emit('gameName', window.location.pathname)
+        })
+
+        socket.on('message',(msg)=>{
+            alert(msg)
+        })
+
+        function sendHello(){
+            socket.emit('hello everybody','Hello!')
+        }
+    </script>
+</footer>
